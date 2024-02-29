@@ -1,0 +1,45 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\SAIT\\Term 2\\Object-Oriented Programming 2 (CPRG-211-A)\\Group\\Assignment_2\\Assignment2_Skeleton\\Assignment2\\obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\scopedcss\\bundle\\Assignment2.styles.css",
+      "PackagePath": "staticwebassets\\Assignment2.styles.css"
+    },
+    {
+      "Id": "D:\\SAIT\\Term 2\\Object-Oriented Programming 2 (CPRG-211-A)\\Group\\Assignment_2\\Assignment2_Skeleton\\Assignment2\\wwwroot\\css\\app.css",
+      "PackagePath": "staticwebassets\\css\\app.css"
+    },
+    {
+      "Id": "D:\\SAIT\\Term 2\\Object-Oriented Programming 2 (CPRG-211-A)\\Group\\Assignment_2\\Assignment2_Skeleton\\Assignment2\\wwwroot\\css\\bootstrap\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\SAIT\\Term 2\\Object-Oriented Programming 2 (CPRG-211-A)\\Group\\Assignment_2\\Assignment2_Skeleton\\Assignment2\\wwwroot\\css\\bootstrap\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\css\\bootstrap\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\SAIT\\Term 2\\Object-Oriented Programming 2 (CPRG-211-A)\\Group\\Assignment_2\\Assignment2_Skeleton\\Assignment2\\wwwroot\\favicon.png",
+      "PackagePath": "staticwebassets\\favicon.png"
+    },
+    {
+      "Id": "D:\\SAIT\\Term 2\\Object-Oriented Programming 2 (CPRG-211-A)\\Group\\Assignment_2\\Assignment2_Skeleton\\Assignment2\\wwwroot\\index.html",
+      "PackagePath": "staticwebassets\\index.html"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.Assignment2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.build.Assignment2.props",
+      "PackagePath": "build\\Assignment2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildMultiTargeting.Assignment2.props",
+      "PackagePath": "buildMultiTargeting\\Assignment2.props"
+    },
+    {
+      "Id": "obj\\Debug\\net8.0-windows10.0.19041.0\\win10-x64\\staticwebassets\\msbuild.buildTransitive.Assignment2.props",
+      "PackagePath": "buildTransitive\\Assignment2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
