@@ -192,9 +192,15 @@
                     NewReservation = new Reservation(res.Code, res.FlightCode, res.Airline, res.Cost, res.Name, res.Citizenship, res.Active);
                     resNew.Add(NewReservation);
                 }
-                // TODO
+                // DONE?
                 // add other cases to be able to find flight by code and/or name and/or airline
-                // ...................................
+                if (((inputResCode != "" && inputResCode.ToUpper() == res.Code.ToUpper()) || inputResCode == "") &&
+                ((inputAirline != "" && inputAirline.ToUpper() == res.Airline.ToUpper()) || inputAirline == "") &&
+                ((inputName != "" && inputName.ToUpper() == res.Name.ToUpper()) || inputName == ""))
+                {
+                    NewReservation = new Reservation(res.Code, res.FlightCode, res.Airline, res.Cost, res.Name, res.Citizenship, res.Active);
+                    resNew.Add(NewReservation);
+                }
             }
         }
         else
