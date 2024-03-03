@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
 using System.Runtime.Serialization;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -43,10 +44,18 @@ namespace Assignment2.Components.Pages.Data
                 {
                     found.Add(reservation);
                 }
-                // TODO
-                // add a case to get reservation by Name   
+                // DONE
+                // add a case to get reservation by Name
+                
+                else if (reservation.Name.Contains(name))
+                {
+                    found.Add(reservation);
+                }
                 // add a case to get reservation by Airline   
-                // ...................................
+                else if (reservation.Airline.Contains(airline))
+                {
+                    found.Add(reservation);
+                }
             }
 
             return found;
@@ -121,8 +130,16 @@ namespace Assignment2.Components.Pages.Data
             // TODO
             // Add code to change the status from Active to Cancelled for the selected flight
             // and update the record in the reservation.csv file  
-            // ...................................
-
+            for (int i = 0; i < lines.Count; i++)
+            {
+                string[] parts = lines[i].Split(",");
+                if (parts[0] == res.Code)
+                {
+                    parts[6] = "Cancelled"; // Assuming status is at index 6
+                    lines[i] = string.Join(",", parts);
+                    break;
+                }
+            }
             File.WriteAllLines(Reservation_TXT, lines);
         }
     }

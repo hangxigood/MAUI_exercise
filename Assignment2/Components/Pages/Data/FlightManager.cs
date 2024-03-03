@@ -49,10 +49,10 @@ namespace Assignment2.Components.Pages.Data
          * The location of the airports text database file.
          */
         /* Example of absolute and relative path */
-        // TODO
+        // DONE
         // define the airports file path  
         // ...................................
-        public static string AIRPORTS_TEXT = "";    // TODO (Update the path)
+        public static string AIRPORTS_TEXT = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\Resources\Files\airports.csv");    // DONE (Update the path)
 
         public static List<Flight> flights = new List<Flight>();
         public static List<string> airports = new List<string>();
@@ -116,6 +116,7 @@ namespace Assignment2.Components.Pages.Data
             return null;
         }
 
+        // DONE
         /**
          * Finds flights going between airports on a specified weekday.
          * @param from From airport code.
@@ -127,9 +128,14 @@ namespace Assignment2.Components.Pages.Data
         {
             List<Flight> found = new List<Flight>();
 
-           // TODO
-           // find all flights that match the input arguments  
-           // ...................................
+            foreach (Flight flight in flights)
+            {
+                if ((from == flight.From || from == WEEKDAY_ANY) && (to == flight.To || to == WEEKDAY_ANY) &&
+                    (weekday == WEEKDAY_ANY || weekday == flight.Weekday))
+                {
+                    found.Add(flight);
+                }
+            }            
 
             return found;
         }
