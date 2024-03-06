@@ -44,15 +44,17 @@ namespace Assignment2.Components.Pages.Data
                 {
                     found.Add(reservation);
                 }
-                // DONE
+                // TODO
                 // add a case to get reservation by Name
-                
-                else if (reservation.Name.Contains(name))
+                // add a case to get reservation by Airline
+
+                // looks for reservations based on customer name and, if found, adds to reservation list
+                else if (reservation.Name.ToUpper().Contains(name))
                 {
                     found.Add(reservation);
                 }
-                // add a case to get reservation by Airline   
-                else if (reservation.Airline.Contains(airline))
+                // looks for reservations based on airline name and, if found, adds to reservation list
+                else if (reservation.Airline.ToUpper().Contains(airline))
                 {
                     found.Add(reservation);
                 }
@@ -130,16 +132,23 @@ namespace Assignment2.Components.Pages.Data
             // TODO
             // Add code to change the status from Active to Cancelled for the selected flight
             // and update the record in the reservation.csv file  
+            
+            // runs a for loop to iterate one line at a time
             for (int i = 0; i < lines.Count; i++)
             {
+                // we'll use Split to break each line of the reservation.csv file into an array named parts
                 string[] parts = lines[i].Split(",");
+                
+                // if parts[0] (where reservation code is) matches the reservation code we want to cancel
                 if (parts[0] == res.Code)
                 {
-                    parts[6] = "Cancelled"; // Assuming status is at index 6
-                    lines[i] = string.Join(",", parts);
-                    break;
+                    // changes index 6 to "Cancelled", replace the original "lines" with the cancelled one by recombining each part of the array into a single line using Join function
+                    parts[6] = "Cancelled";
+                    lines[i] = string.Join(",", parts);                    
                 }
             }
+            
+            // writes all lines back to the modified reservation.csv
             File.WriteAllLines(Reservation_TXT, lines);
         }
     }

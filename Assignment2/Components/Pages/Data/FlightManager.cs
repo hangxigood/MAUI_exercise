@@ -49,10 +49,10 @@ namespace Assignment2.Components.Pages.Data
          * The location of the airports text database file.
          */
         /* Example of absolute and relative path */
-        // DONE
+        // TODO
         // define the airports file path  
-        // ...................................
-        public static string AIRPORTS_TEXT = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\Resources\Files\airports.csv");    // DONE (Update the path)
+        // airport list is included on the airports.csv file under Resources\Files
+        public static string AIRPORTS_TEXT = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\Resources\Files\airports.csv"); 
 
         public static List<Flight> flights = new List<Flight>();
         public static List<string> airports = new List<string>();
@@ -116,7 +116,7 @@ namespace Assignment2.Components.Pages.Data
             return null;
         }
 
-        // DONE
+        // TODO        
         /**
          * Finds flights going between airports on a specified weekday.
          * @param from From airport code.
@@ -126,10 +126,13 @@ namespace Assignment2.Components.Pages.Data
          */
         public static List<Flight> findFlights(string from, string to, string weekday)
         {
+            // creates a new, empty list of flights called found
             List<Flight> found = new List<Flight>();
 
+            // iterates each flight object in Flight
             foreach (Flight flight in flights)
             {
+                // If any combination is found, add the flight object to the found list. Conditions are set to allow a search based on "from, to, day", including "any" as option using the WEEKDAY_ANY constant. This allows the user more freedom when searching for a flight
                 if ((from == flight.From || from == WEEKDAY_ANY) && (to == flight.To || to == WEEKDAY_ANY) &&
                     (weekday == WEEKDAY_ANY || weekday == flight.Weekday))
                 {

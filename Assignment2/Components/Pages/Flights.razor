@@ -211,11 +211,11 @@
 
         <br />
         <div>
-            <label>Flight code:</label> <input class="form-control" type="text" placeholder="Flight" value="@newFlightCode">
-            <label>Airline:</label><input class="form-control" type="text" placeholder="Airline" value="@newairline">
-            <label>Day:</label> <input class="form-control" type="text" placeholder="Day" value="@newweekday">
-            <label>Time:</label> <input class="form-control" type="text" placeholder="Time" value="@newtime">
-            <label>Cost:</label> <input class="form-control" type="text" placeholder="Cost" value="@newcostPerSeat">
+            <label>Flight code:</label> <input class="form-control" type="text" placeholder="Flight" value="@newFlightCode" readonly>
+            <label>Airline:</label><input class="form-control" type="text" placeholder="Airline" value="@newairline" readonly>
+            <label>Day:</label> <input class="form-control" type="text" placeholder="Day" value="@newweekday" readonly>
+            <label>Time:</label> <input class="form-control" type="text" placeholder="Time" value="@newtime" readonly>
+            <label>Cost:</label> <input class="form-control" type="text" placeholder="Cost" value="@newcostPerSeat" readonly>
         </div>
         <br />
         <div class="row">
@@ -315,7 +315,8 @@
         ReservationManager rm = new ReservationManager();        
         try
         {
-            if (newFlightCode != null)
+            // changed this part to prevent a reservation from being made with no name or no citizenship, also avoiding errors with no flight selected, or selecting "loading" or "select a flight" options
+            if (newFlightCode != null && newFlightCode != "Select a flight from this list" && newFlightCode != "Loading..." && newName != null && newCitizenship != null && newName != "" && newCitizenship != "")
             {
                 newReservationCode = rm.GenerateResCode();
                 var reservation = new Reservation(newReservationCode, newFlightCode, newairline, newcostPerSeat, newName, newCitizenship, "Active");

@@ -192,8 +192,17 @@
                     NewReservation = new Reservation(res.Code, res.FlightCode, res.Airline, res.Cost, res.Name, res.Citizenship, res.Active);
                     resNew.Add(NewReservation);
                 }
-                // DONE?
+                // TODO
                 // add other cases to be able to find flight by code and/or name and/or airline
+
+                // Checks the following conditions when looking for an existing reservation:
+                // 1) Reservation code is empty OR reservation code is found
+                // AND
+                // 2) Airline is empty OR airline name is found
+                // AND
+                // 3) Passenger name is empty OR passanger name is found.
+                // In all scenarios both input and reservation are converted to uppercase to make case insensitive comparison
+
                 if (((inputResCode != "" && inputResCode.ToUpper() == res.Code.ToUpper()) || inputResCode == "") &&
                 ((inputAirline != "" && inputAirline.ToUpper() == res.Airline.ToUpper()) || inputAirline == "") &&
                 ((inputName != "" && inputName.ToUpper() == res.Name.ToUpper()) || inputName == ""))
