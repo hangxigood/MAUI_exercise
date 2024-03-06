@@ -1,4 +1,11 @@
-﻿using Microsoft.Extensions.Logging;
+﻿// Assignment 2: Traveless (Abstract Classes, Event Driven Applications)
+// OOP-2 Using C#
+// Group Project
+// Members: Ahmed Obad, Fernando Horta, Hangxi Xiang
+// March 5h, 2024
+
+
+using Microsoft.Extensions.Logging;
 
 namespace Assignment2
 {
