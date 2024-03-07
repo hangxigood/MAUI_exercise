@@ -64,4 +64,10 @@
         <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
     </ItemGroup>
 
+    <ItemGroup>
+        <EmbeddedResource Include="Resources/Files/airports.csv" />
+        <EmbeddedResource Include="Resources/Files/flights.csv" />
+        <EmbeddedResource Include="Resources/Files/reservation.csv" />
+    </ItemGroup>
+
 </Project>

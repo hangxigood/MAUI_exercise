@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Reflection;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -42,17 +44,37 @@ namespace Assignment2.Components.Pages.Data
         public static string WEEKDAY_SATURDAY = "Saturday";
 
         /**
-        * The location of the flights text database file.
-        */
-        public static string FLIGHTS_TEXT = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\Resources\Files\flights.csv");
-        /**
-         * The location of the airports text database file.
+         * Used to accesse the Embedded Resource.
          */
-        /* Example of absolute and relative path */
-        // TODO
-        // define the airports file path  
-        // airport list is included on the airports.csv file under Resources\Files
-        public static string AIRPORTS_TEXT = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, @"..\..\..\..\..\Resources\Files\airports.csv"); 
+        public static string ReadEmbeddedResource(string resourceName)
+        {
+            string fullResourceName = $"Assignment2.Resources.Files.{resourceName}";
+
+            Assembly assembly = Assembly.GetExecutingAssembly();
+
+            string resourcePath = assembly.GetManifestResourceNames()
+                .FirstOrDefault(str => str.EndsWith(fullResourceName, StringComparison.CurrentCultureIgnoreCase));
+
+            if (string.IsNullOrEmpty(resourcePath))
+            {
+                throw new FileNotFoundException($"Resource {fullResourceName} not found.");
+            }
+
+            using (Stream stream = assembly.GetManifestResourceStream(resourcePath))
+            using (StreamReader reader = new StreamReader(stream, Encoding.UTF8))
+            {
+                return reader.ReadToEnd();
+            }
+        }
+
+        /**
+        * Accessing the Embedded Resource(flights.csv)
+        */
+        public static string FLIGHTS_TEXT = ReadEmbeddedResource("flights.csv");
+        /**
+         * Accessing the Embedded Resource(airports.csv)
+         */
+        public static string AIRPORTS_TEXT = ReadEmbeddedResource("airports.csv"); 
 
         public static List<Flight> flights = new List<Flight>();
         public static List<string> airports = new List<string>();
@@ -70,7 +92,7 @@ namespace Assignment2.Components.Pages.Data
          * Gets all of the airports.
          * @return ArrayList of Airport objects.
          */
-        public List<string> getAirports()
+        public static List<string> GetAirports()
         {
             return airports;
         }
@@ -79,7 +101,7 @@ namespace Assignment2.Components.Pages.Data
          * Gets all of the flights.
          * @return ArrayList of Flight objects.
          */
-        public static List<Flight> getFlights()
+        public static List<Flight> GetFlights()
         {
             return flights;
         }
@@ -128,7 +150,6 @@ namespace Assignment2.Components.Pages.Data
         {
             // creates a new, empty list of flights called found
             List<Flight> found = new List<Flight>();
-
             // iterates each flight object in Flight
             foreach (Flight flight in flights)
             {
@@ -149,17 +170,15 @@ namespace Assignment2.Components.Pages.Data
         private void populateFlights()
         {
             flights.Clear();
+            string[] lines = FLIGHTS_TEXT.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             try
             {
                 int counter = 0;
                 Flight flight;
                 // Read the file and display it line by line.  
-                foreach (string line in File.ReadLines(FLIGHTS_TEXT))
+                foreach (string line in lines)
                 {
-                    Console.WriteLine(line);
-
                     string[] parts = line.Split(",");
-
                     string code = parts[0];
                     string airline = parts[1];
                     string from = parts[2];
@@ -196,17 +215,18 @@ namespace Assignment2.Components.Pages.Data
          */
         private void populateAirports()
         {
+            string[] lines = AIRPORTS_TEXT.Split(new[] { '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
             try
             {
                 int counter = 0;
-                foreach (string line in File.ReadLines(AIRPORTS_TEXT))
+                foreach (string line in lines)
                 {
                     string[] parts = line.Split(",");
-
                     string code = parts[0];
                     string name = parts[1];
                     airports.Add(code);
-
+                    Console.WriteLine(code);
+                    Console.WriteLine("populateAirports is running");
                     counter++;
                 }
             }

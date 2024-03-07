@@ -1,0 +1,90 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Assignment2</name>
+    </assembly>
+    <members>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_ANY">
+            Used to search for flights on any day of the week.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_SUNDAY">
+            Used to search for flights on Sunday.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_MONDAY">
+            Used to search for flights on Monday.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_TUESDAY">
+            Used to search for flights on Tuesday.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_WEDNESDAY">
+            Used to search for flights on Wednesday.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_THURSDAY">
+            Used to search for flights on Thursday.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_FRIDAY">
+            Used to search for flights on Friday.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.WEEKDAY_SATURDAY">
+            Used to search for flights on Saturday.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.FLIGHTS_TEXT">
+            The location of the flights text database file.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.FlightManager.AIRPORTS_TEXT">
+            The location of the airports text database file.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.#ctor">
+            Default constructor for FlightManager.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.GetAirports">
+            Gets all of the airports.
+            @return ArrayList of Airport objects.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.GetFlights">
+            Gets all of the flights.
+            @return ArrayList of Flight objects.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.findAirportByCode(System.String)">
+            Finds an airport with code.
+            @param code Airport code
+            @return Airport object or null if none found.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.findFlightByCode(System.String)">
+            Finds a flight with code.
+            @param code Flight code.
+            @return Flight object or null if none found.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.findFlights(System.String,System.String,System.String)">
+            Finds flights going between airports on a specified weekday.
+            @param from From airport code.
+            @param to To airport code.
+            @param weekday Day of week (one of WEEKDAY_* constants). Use WEEKDAY_ANY for any day of the week.
+            @return Any found Flight objects.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.populateFlights">
+            Populates flights ArrayList with Flight objects from CSV file.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.FlightManager.populateAirports">
+            Populates airports with Airport objects from CSV file.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.ReservationManager.Reservation_TXT">
+            The location of the reservation file.
+        </member>
+        <member name="F:Assignment2.Components.Pages.Data.ReservationManager.reservations">
+            Holds the Reservation objects.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.ReservationManager.FindReservations(System.String,System.String,System.String)">
+            Finds reservations containing either reservation code or airline.
+            @param reservationCode Reservation code to search for.
+            @param airline Airline to search for.
+            @param name Travelers name to search for.
+            @return Any matching Reservation objects.
+        </member>
+        <member name="M:Assignment2.Components.Pages.Data.ReservationManager.GenerateReservationCode">
+            Gets reservation code using a flight.
+            @param flight Flight instance.
+            @return Reservation code.
+        </member>
+    </members>
+</doc>

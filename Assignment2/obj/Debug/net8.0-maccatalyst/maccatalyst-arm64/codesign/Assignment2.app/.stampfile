@@ -1,0 +1,1 @@
+-v --force --timestamp=none --sign - --entitlements /Users/xianghangxi/Github/MAUI_exercise/Assignment2/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/Entitlements.xcent /Users/xianghangxi/Github/MAUI_exercise/Assignment2/bin/Debug/net8.0-maccatalyst/maccatalyst-arm64/Assignment2.app

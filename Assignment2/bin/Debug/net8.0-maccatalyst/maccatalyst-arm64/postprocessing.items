@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <_PostProcessingItem Include="Assignment2.app/Contents/MacOS/Assignment2">
+      <BCSymbolMapName>Assignment2.bcsymbolmap</BCSymbolMapName>
+      <NoDSymUtil>true</NoDSymUtil>
+      <dSYMSourcePathExists>false</dSYMSourcePathExists>
+      <NoSymbolStrip>true</NoSymbolStrip>
+      <dSYMInfoPlistRelativePath>Assignment2.app.dSYM\Contents\Info.plist</dSYMInfoPlistRelativePath>
+      <SymbolFile>/Users/xianghangxi/Github/MAUI_exercise/Assignment2/obj/Debug/net8.0-maccatalyst/maccatalyst-arm64/mtouch-symbols.list</SymbolFile>
+      <DSymName>Assignment2.app.dSYM</DSymName>
+      <SourceProjectPath>/Users/xianghangxi/Github/MAUI_exercise/Assignment2</SourceProjectPath>
+    </_PostProcessingItem>
+  </ItemGroup>
+</Project>
